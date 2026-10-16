@@ -73,8 +73,8 @@ document.body.classList.toggle("admin-mode",admin);
 function toast(msg){let t=document.getElementById("toast");t.textContent=msg;t.classList.add("show");setTimeout(()=>t.classList.remove("show"),2600)}
 function openModal(title,body){document.getElementById("modalTitle").textContent=title;document.getElementById("modalBody").innerHTML=body;document.getElementById("modalback").classList.add("open")}
 function closeModal(){document.getElementById("modalback").classList.remove("open")}
-function openAdminLogin(){if(admin){openEditor("menu");return}openModal("Admin portal",`<p>Admin mode lets you edit this dashboard on this device.</p><div class="field"><label>Demo access code</label><input id="adminCode" type="password" placeholder="Enter demo code"></div><p class="hint">For this standalone prototype, the demo code is <b>LIBRARY-ADMIN</b>. This is not secure authentication. Before public deployment, connect a server-side login and role permissions.</p><div class="modalactions"><button class="primary" onclick="loginAdmin()">Enter admin mode</button></div>`)}
-function loginAdmin(){if(document.getElementById("adminCode").value!=="LIBRARY-ADMIN"){toast("Incorrect demo code.");return}admin=true;closeModal();render();openEditor("menu")}
+function openAdminLogin(){if(admin){openEditor("menu");return}openModal("Admin portal",`<p>Admin mode lets you edit this dashboard on this device.</p><div class="field"><label>Access code</label><input id="adminCode" type="password" placeholder="Enter Access code"></div><p class="hint">For this standalone prototype, the demo code is <b>NU-ADMIN-LIB</b>. This is not secure authentication. Before public deployment, connect a server-side login and role permissions.</p><div class="modalactions"><button class="primary" onclick="loginAdmin()">Enter admin mode</button></div>`)}
+function loginAdmin(){if(document.getElementById("adminCode").value!=="NU-ADMIN-LIB"){toast("Incorrect code.");return}admin=true;closeModal();render();openEditor("menu")}
 function logoutAdmin(){admin=false;render();toast("Admin mode closed.")}
 function openEditor(kind){
 if(!admin){toast("Enter admin mode first.");return}
